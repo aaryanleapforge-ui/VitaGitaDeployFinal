@@ -11,8 +11,10 @@ import Shloks from "./pages/Shloks";
 import Videos from "./pages/Videos";
 import Analytics from "./pages/Analytics";
 import Settings from "./pages/Settings";
+
 import Privacy from "./pages/privacy";
 import Terms from "./pages/terms";
+import DeleteAccount from "./pages/DeleteAccount";
 
 import ProtectedRoute from "./auth/ProtectedRoute";
 
@@ -24,6 +26,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/privacy-policy" element={<Privacy />} />
         <Route path="/terms-and-conditions" element={<Terms />} />
+        <Route path="/deleteaccount" element={<DeleteAccount />} />
 
         {/* ================= PROTECTED ADMIN ROUTES ================= */}
         <Route

@@ -73,6 +73,19 @@ export default function Sidebar() {
             <span className="mr-2">📄</span>
             <span>Terms & Conditions</span>
           </NavLink>
+
+          {/* 🔥 DELETE ACCOUNT (PUBLIC PAGE) */}
+          <NavLink
+            to="/deleteaccount"
+            className={({ isActive }) =>
+              isActive
+                ? "sidebar-link sidebar-link-active text-red-400"
+                : "sidebar-link text-red-300 hover:text-red-400"
+            }
+          >
+            <span className="mr-2">🗑️</span>
+            <span>Delete Account</span>
+          </NavLink>
         </div>
       </nav>
 

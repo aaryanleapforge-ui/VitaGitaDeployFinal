@@ -68,15 +68,24 @@ export default function Login() {
             target="_blank"
           >
             Terms & Conditions
-          </Link>{" "}
-          and{" "}
+          </Link>
+          ,{" "}
           <Link
             to="/privacy-policy"
             className="text-vitaBlue-700 hover:underline"
             target="_blank"
           >
             Privacy Policy
-          </Link>.
+          </Link>{" "}
+          and{" "}
+          <Link
+            to="/deleteaccount"
+            className="text-vitaBlue-700 hover:underline"
+            target="_blank"
+          >
+            Delete Account Policy
+          </Link>
+          .
         </div>
       </div>
     </div>
