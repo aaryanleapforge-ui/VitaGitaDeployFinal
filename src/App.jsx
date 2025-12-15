@@ -11,18 +11,19 @@ import Shloks from "./pages/Shloks";
 import Videos from "./pages/Videos";
 import Analytics from "./pages/Analytics";
 import Settings from "./pages/Settings";
+import Privacy from "./pages/privacy";
+import Terms from "./pages/terms";
 
 import ProtectedRoute from "./auth/ProtectedRoute";
 
 export default function App() {
   return (
     <div className="min-h-screen flex text-gray-900 app-shell">
-
       <Routes>
         {/* PUBLIC ROUTE */}
         <Route path="/login" element={<Login />} />
 
-        {/* PROTECTED ROUTES — ONLY ACCESSIBLE AFTER LOGIN */}
+        {/* PROTECTED ROUTES */}
         <Route
           path="/*"
           element={
@@ -32,28 +33,32 @@ export default function App() {
           }
         />
       </Routes>
-
     </div>
   );
 }
 
 function Layout() {
   const { pathname } = useLocation();
+
   const pageTitleMap = {
     "/": "Dashboard",
     "/users": "Users",
-    "/shloks": "Sholks list to add",
+    "/shloks": "Shloks",
     "/videos": "Videos",
     "/analytics": "Analytics",
     "/settings": "Settings",
+    "/privacy-policy": "Privacy Policy",
+    "/terms-and-conditions": "Terms & Conditions",
   };
+
   const currentTitle = pageTitleMap[pathname] || "Dashboard";
+
   return (
     <div className="flex w-full">
-
-      {/* SIDEBAR IS ALWAYS VISIBLE AFTER LOGIN */}
+      {/* SIDEBAR */}
       <Sidebar />
 
+      {/* MAIN CONTENT */}
       <main className="flex-1 bg-white/80 backdrop-blur-[1px]">
         <Topbar title={currentTitle} />
 
@@ -65,13 +70,14 @@ function Layout() {
             <Route path="/videos" element={<Videos />} />
             <Route path="/analytics" element={<Analytics />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/privacy-policy" element={<Privacy />} />
+            <Route path="/terms-and-conditions" element={<Terms />} />
 
-            {/* ANY UNKNOWN PATH REDIRECTS TO DASHBOARD */}
+            {/* FALLBACK */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
       </main>
-
     </div>
   );
 }
