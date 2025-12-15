@@ -20,10 +20,12 @@ export default function App() {
   return (
     <div className="min-h-screen flex text-gray-900 app-shell">
       <Routes>
-        {/* PUBLIC ROUTE */}
+        {/* ================= PUBLIC ROUTES ================= */}
         <Route path="/login" element={<Login />} />
+        <Route path="/privacy-policy" element={<Privacy />} />
+        <Route path="/terms-and-conditions" element={<Terms />} />
 
-        {/* PROTECTED ROUTES */}
+        {/* ================= PROTECTED ADMIN ROUTES ================= */}
         <Route
           path="/*"
           element={
@@ -47,15 +49,13 @@ function Layout() {
     "/videos": "Videos",
     "/analytics": "Analytics",
     "/settings": "Settings",
-    "/privacy-policy": "Privacy Policy",
-    "/terms-and-conditions": "Terms & Conditions",
   };
 
   const currentTitle = pageTitleMap[pathname] || "Dashboard";
 
   return (
     <div className="flex w-full">
-      {/* SIDEBAR */}
+      {/* SIDEBAR (ADMIN ONLY) */}
       <Sidebar />
 
       {/* MAIN CONTENT */}
@@ -70,8 +70,6 @@ function Layout() {
             <Route path="/videos" element={<Videos />} />
             <Route path="/analytics" element={<Analytics />} />
             <Route path="/settings" element={<Settings />} />
-            <Route path="/privacy-policy" element={<Privacy />} />
-            <Route path="/terms-and-conditions" element={<Terms />} />
 
             {/* FALLBACK */}
             <Route path="*" element={<Navigate to="/" replace />} />
